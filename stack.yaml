@@ -1,0 +1,13 @@
+resolver: lts-13.14
+
+packages:
+- .
+
+extra-deps:
+- jsaddle-0.9.6.0
+- jsaddle-warp-0.9.6.0
+- ref-tf-0.4.0.1
+
+flags:
+  miso:
+    jsaddle: true
