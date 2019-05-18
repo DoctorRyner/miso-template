@@ -2,3 +2,4 @@ packages:
     ../miso-template
 
 compiler: ghcjs
+with-compiler: /Users/local/.nix-profile/bin/ghcjs

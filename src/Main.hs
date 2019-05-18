@@ -26,7 +26,7 @@ view' model = div_ []
     ]
 
 main :: IO ()
-main = JSaddle.run 8000 $ startApp App {..}
+main = putStrLn "Working on http://localhost:8000" >>= \_ -> JSaddle.run 8000 $ startApp App {..}
   where
     initialAction = NoEvent
     model  = defaultModel

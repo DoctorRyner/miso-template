@@ -1,5 +1,7 @@
 packages:
     ../miso-template
 
+with-compiler: /Users/local/.stack/programs/x86_64-osx/ghc-8.6.5/bin/ghc
+
 package miso
     flags: +jsaddle
