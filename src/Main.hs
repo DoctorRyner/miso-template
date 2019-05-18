@@ -2,7 +2,6 @@ module Main where
 
 import Miso
 import Miso.String
-import Control.Monad.IO.Class
 import Language.Javascript.JSaddle.Warp as JSaddle
 
 type Model = Int
@@ -13,28 +12,17 @@ defaultModel = 0
 data Event
     = NoEvent
     | Inc
-    | Dec
-    | SayHello
     deriving (Eq, Show)
 
 update' :: Event -> Model -> Effect Event Model
 update' event model = case event of
     NoEvent -> noEff model
     Inc     -> noEff $ succ model
-    Dec     -> noEff $ pred model
-    SayHello -> model <# do
-        liftIO $ putStrLn "Hello!"
-        pure NoEvent
 
 view' :: Model -> View Event
 view' model = div_ []
-    [ text "Hello ~ Haskell GUI"
-    , br_ []
+    [ text $ ms model
     , button_ [ onClick Inc ] [ text "+" ]
-    , text $ ms model
-    , button_ [ onClick Dec ] [ text "-" ]
-    , br_ []
-    , button_ [ onClick SayHello ] [ text "Say Hello!" ]
     ]
 
 main :: IO ()

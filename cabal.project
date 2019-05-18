@@ -1,0 +1,5 @@
+packages:
+    ../miso-template
+
+package miso
+    flags: +jsaddle

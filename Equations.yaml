@@ -1,6 +1,6 @@
-default: sae dev
+build-with-ghc: cabal new-build all --constraint "pkg +flag"
+repl: cabal new-repl all
 
-dev: ghcid -c "stack ghci src/Main.hs" -r
+build-with-ghcjs: cabal new-build all --project=cabal-ghcjs.project
 
-build: stack build --stack-yaml "stack-ghcjs.yaml"
-setup: stack setup --stack-yaml "stack-ghcjs.yaml"
+ghcid: ghcid -r --warnings

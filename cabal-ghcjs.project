@@ -1,0 +1,4 @@
+packages:
+    ../miso-template
+
+compiler: ghcjs
