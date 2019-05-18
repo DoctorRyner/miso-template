@@ -1,19 +1,20 @@
 cabal-version:       2.4
 
-name:                miso-cabal
+name:                miso-template
 version:             0.1.0.0
 author:              DoctorRyner
 maintainer:          drryner@icloud.com
 
-executable miso-cabal
+executable miso-template
   main-is:             Main.hs
   default-extensions:  RecordWildCards OverloadedStrings
   build-depends:       base ^>=4.12.0.0
                      , miso >=0.21.2.0 && >0.21.1.0
-                     , jsaddle
-                     , jsaddle-warp
+                     , jsaddle == 0.9.6.0
+                     , jsaddle-warp == 0.9.6.0
+                     , jsaddle-wkwebview == 0.9.6.0
 
-  ghc-options:         -Wall
+  ghc-options:         -O2 -Wall -fwarn-tabs -funbox-strict-fields -threaded -fno-warn-unused-do-bind -rtsopts
 
   hs-source-dirs:      src
   default-language:    Haskell2010
