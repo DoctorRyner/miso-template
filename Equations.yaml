@@ -1,3 +1,5 @@
+default: sae build-with-ghcjs
+
 build-with-ghc: cabal new-build all --constraint "pkg +flag"
 repl: cabal new-repl all
 
