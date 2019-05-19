@@ -1,49 +1,27 @@
 module Main where
 
-import Miso
-import Miso.String
-import Control.Monad.IO.Class
-import Language.Javascript.JSaddle.Warp as JSaddle
+import           Language.Javascript.JSaddle.Warp as JSaddle
+import           Miso
 
-type Model = Int
-
-defaultModel :: Model
-defaultModel = 0
-
-data Event
-    = NoEvent
-    | Inc
-    | Dec
-    | SayHello
-    deriving (Eq, Show)
+import qualified Style.Global
+import           Types
 
 update' :: Event -> Model -> Effect Event Model
 update' event model = case event of
     NoEvent -> noEff model
-    Inc     -> noEff $ succ model
-    Dec     -> noEff $ pred model
-    SayHello -> model <# do
-        liftIO $ putStrLn "Hello!"
-        pure NoEvent
 
 view' :: Model -> View Event
-view' model = div_ []
-    [ text "Hello ~ Haskell GUI"
-    , br_ []
-    , button_ [ onClick Inc ] [ text "+" ]
-    , text $ ms model
-    , button_ [ onClick Dec ] [ text "-" ]
-    , br_ []
-    , button_ [ onClick SayHello ] [ text "Say Hello!" ]
+view' _model = div_ []
+    [ Style.Global.css
     ]
 
 main :: IO ()
-main = JSaddle.run 8000 $ startApp App {..}
-  where
-    initialAction = NoEvent
-    model  = defaultModel
-    update = update'
-    view   = view'
-    events = defaultEvents
-    subs   = []
-    mountPoint = Nothing
+main = putStrLn "Working on http://localhost:8000" >>= \_ -> JSaddle.run 8000 . startApp $ App
+    { initialAction = NoEvent
+    , model         = defaultModel
+    , update        = update'
+    , view          = view'
+    , events        = defaultEvents
+    , subs          = []
+    , mountPoint    = Nothing
+    }

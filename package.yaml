@@ -6,25 +6,31 @@ dependencies:
 - miso
 - jsaddle
 - jsaddle-warp
+- clay
+- text
+- containers
+- lens
 
 library:
   source-dirs: src
   default-extensions:
-  - RecordWildCards
   - OverloadedStrings
+  ghc-options:
+  - -F -pgmF=record-dot-preprocessor
 
 executables:
   miso-template-exe:
     main:                Main.hs
     source-dirs:         src
+    default-extensions:
+    - OverloadedStrings
     ghc-options:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -F -pgmF=record-dot-preprocessor
     - -Wall
-    default-extensions:
-    - RecordWildCards
-    - OverloadedStrings
+    - -Wno-name-shadowing
     dependencies:
     - miso-template
 
