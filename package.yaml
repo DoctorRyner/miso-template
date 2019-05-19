@@ -10,7 +10,6 @@ dependencies:
 library:
   source-dirs: src
   default-extensions:
-  - RecordWildCards
   - OverloadedStrings
 
 executables:
@@ -23,7 +22,6 @@ executables:
     - -with-rtsopts=-N
     - -Wall
     default-extensions:
-    - RecordWildCards
     - OverloadedStrings
     dependencies:
     - miso-template
