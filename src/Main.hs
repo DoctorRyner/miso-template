@@ -6,7 +6,8 @@ import           Miso
 import qualified Style.Global
 import           Types
 
-import qualified View.Header
+import           View.Header
+import           View.TODO
 
 update' :: Event -> Model -> Effect Event Model
 update' event model = case event of
@@ -17,10 +18,11 @@ view' :: Model -> View Event
 view' model = div_ []
     [ Style.Global.css
     , View.Header.render model
+    , View.TODO.render model
     ]
 
 main :: IO ()
-main = putStrLn "Working on http://localhost:8000" >>= \_ -> JSaddle.run 8000 . startApp $ App
+main = putStrLn "Working on http://localhost:8000" <$ JSaddle.run 8000 . startApp $ App
     { initialAction = NoEvent
     , model         = defaultModel
     , update        = update'
