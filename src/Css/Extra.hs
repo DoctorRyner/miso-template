@@ -5,11 +5,14 @@ import           Data.Text
 import           Miso
 import           Miso.String as MisoString
 
+mshow :: ToMisoString a => a -> MisoString
+mshow = MisoString.ms
+
 class' :: Text -> Css -> Css
 class' = (?) . element . (<>) "."
 
 stylify :: Css -> View a
-stylify x = nodeHtml "style" [] [ text . MisoString.ms $ render x ]
+stylify x = nodeHtml "style" [] [ text . mshow $ render x ]
 
 padding1 :: Size LengthUnit -> Css
 padding1 x = padding x x x x

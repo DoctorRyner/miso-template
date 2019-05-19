@@ -6,13 +6,17 @@ import           Miso
 import qualified Style.Global
 import           Types
 
+import qualified View.Header
+
 update' :: Event -> Model -> Effect Event Model
 update' event model = case event of
     NoEvent -> noEff model
+    Inc     -> noEff $ model { counter = succ model.counter }
 
 view' :: Model -> View Event
-view' _model = div_ []
+view' model = div_ []
     [ Style.Global.css
+    , View.Header.render model
     ]
 
 main :: IO ()
