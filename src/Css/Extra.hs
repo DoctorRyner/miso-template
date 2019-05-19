@@ -1,7 +1,7 @@
 module Css.Extra (module Css.Extra, module Clay) where
 
 import           Clay
-import           Data.Text
+import           Data.Text as Text
 import           Miso
 import           Miso.String as MisoString
 
@@ -19,3 +19,13 @@ padding1 x = padding x x x x
 
 margin1 :: Size LengthUnit -> Css
 margin1 x = margin x x x x
+
+fontMinMax :: Float -> Float -> Css
+fontMinMax minPxSize maxPxSize = "font-size" -: mconcat [ "calc("
+                                                        , Text.pack $ show minPxSize
+                                                        , "px + ("
+                                                        , Text.pack $ show maxPxSize
+                                                        , " - "
+                                                        , Text.pack $ show minPxSize
+                                                        , ") * ((80vw - 500px) / (1600 - 300)))"
+                                                        ]
