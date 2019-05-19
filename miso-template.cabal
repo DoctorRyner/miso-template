@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: effa889cce9c7d2a730fb13f3717259bc0daebce9b1268307361fadef52fdb39
+-- hash: 6605987450dd05dc131998fd3b44ee501cccfb65da33c47280bcc0d540335195
 
 name:           miso-template
 version:        0.1
@@ -19,7 +19,8 @@ library
       src
   default-extensions: RecordWildCards OverloadedStrings
   build-depends:
-      base >=4.7 && <5
+      HsYAML
+    , base >=4.7 && <5
     , jsaddle
     , jsaddle-warp
     , miso
@@ -32,9 +33,10 @@ executable miso-template-exe
   hs-source-dirs:
       src
   default-extensions: RecordWildCards OverloadedStrings
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N -Wall
   build-depends:
-      base >=4.7 && <5
+      HsYAML
+    , base >=4.7 && <5
     , jsaddle
     , jsaddle-warp
     , miso
@@ -50,7 +52,8 @@ test-suite miso-template-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      HsYAML
+    , base >=4.7 && <5
     , jsaddle
     , jsaddle-warp
     , miso

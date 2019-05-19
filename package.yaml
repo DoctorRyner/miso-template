@@ -21,6 +21,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -Wall
     default-extensions:
     - RecordWildCards
     - OverloadedStrings

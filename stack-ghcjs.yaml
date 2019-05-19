@@ -1,13 +1,12 @@
-resolver: lts-12.14
+resolver: lts-13.21
 
 packages:
 - .
 
+compiler: ghcjs-8.6.0.1_ghc-8.6.2
+system-ghc: true
+
 extra-deps:
 - jsaddle-0.9.6.0
 - jsaddle-warp-0.9.6.0
-- ref-tf-0.4.0.1
-
-flags:
-  miso:
-    jsaddle: true
+- ghcjs-base-0.2.0.0

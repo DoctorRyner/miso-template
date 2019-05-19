@@ -2,5 +2,5 @@ default: sae dev
 
 dev: ghcid -c "stack ghci src/Main.hs" -r
 
-build: stack build --stack-yaml "stack-ghcjs.yaml"
-setup: stack setup --stack-yaml "stack-ghcjs.yaml"
+build-init: stack build --stack-yaml "stack-ghcjs.yaml"
+build: cabal new-build all --project=cabal-ghcjs.project
