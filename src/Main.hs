@@ -23,13 +23,13 @@ view' model = div_ []
 
 main :: IO ()
 main = do
-    putStrLn "Working on http://localhost:8000"
-    
-    JSaddle.run 8000 . startApp $ App { initialAction = NoEvent
-                                      , model         = defaultModel
-                                      , update        = update'
-                                      , view          = view'
-                                      , events        = defaultEvents
-                                      , subs          = []
-                                      , mountPoint    = Nothing
-                                      }
+    putStrLn "Working on:"
+
+    JSaddle.debug 8000 . startApp $ App { initialAction = NoEvent
+                                        , model         = defaultModel
+                                        , update        = update'
+                                        , view          = view'
+                                        , events        = defaultEvents
+                                        , subs          = []
+                                        , mountPoint    = Nothing
+                                        }
