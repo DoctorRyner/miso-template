@@ -6,6 +6,7 @@ import           Miso
 import qualified Style.Global
 import           Types
 
+import qualified Miso.Styled.Html as Styled
 import           View.Header
 import           View.TODO
 
@@ -16,9 +17,14 @@ update' event model = case event of
 
 view' :: Model -> View Event
 view' model = div_ []
-    [ Style.Global.css
-    , View.Header.render model
-    , View.TODO.render model
+    -- [ Style.Global.css
+    -- , View.Header.render model
+    -- , View.TODO.render model
+    -- ]
+    [ Styled.toUnstyled $ Styled.node "div" []
+        [ Styled.text "testa"
+        , Styled.node "h1" [ Styled.class_ "tek" ] [ Styled.text "keka" ]
+        ]
     ]
 
 main :: IO ()
