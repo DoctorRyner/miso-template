@@ -14,12 +14,6 @@ data VTree a = VNode (String, Css) String [Attribute a] [VTree a] | VText String
 data Attribute a = Attribute (Miso.Attribute a)
 data View a = View (Miso.View a)
 
--- text :: String -> View a
--- text = View . Miso.text . mshow
-
--- node :: String -> [Attribute a] -> [View a] -> View a
--- node tag attrs childs = node tag attrs childs
-
 toUnstyledAttribute :: Attribute a -> Miso.Attribute a
 toUnstyledAttribute (Attribute attr) = attr
 
