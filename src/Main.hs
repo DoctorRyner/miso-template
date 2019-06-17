@@ -1,9 +1,10 @@
 module Main where
 
-import Miso
-import Miso.String
-import Control.Monad.IO.Class
-import Language.Javascript.JSaddle.Warp as JSaddle
+import           Control.Monad.IO.Class
+import           Language.Javascript.JSaddle.Warp as JSaddle
+import           Miso
+import           Miso.String
+import qualified Style
 
 data Model = Model
     {
@@ -22,13 +23,14 @@ update' event model = case event of
 
 view' :: Model -> View Event
 view' model = div_ []
-    [ text "Hello ~ Haskell GUI"
+    [ nodeHtml "style" [] [ text Style.css ]
+    , text "Hello ~ Haskell GUI"
     ]
 
 main :: IO ()
 main = do
     putStrLn "Working on http://localhost:8000"
-    
+
     JSaddle.debug 8000 . startApp $ App { initialAction = NoEvent
                                         , model         = defaultModel
                                         , update        = update'
