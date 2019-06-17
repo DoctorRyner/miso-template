@@ -5,10 +5,12 @@ import Miso.String
 import Control.Monad.IO.Class
 import Language.Javascript.JSaddle.Warp as JSaddle
 
-type Model = ()
+data Model = Model
+    {
+    } deriving Eq
 
 defaultModel :: Model
-defaultModel = ()
+defaultModel = Model
 
 data Event
     = NoEvent

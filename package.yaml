@@ -6,11 +6,14 @@ dependencies:
 - miso
 - jsaddle
 - jsaddle-warp
+- lens
 
 library:
   source-dirs: src
   default-extensions:
   - OverloadedStrings
+  ghc-options:
+  - -F -pgmF=record-dot-preprocessor
 
 executables:
   miso-template-exe:
@@ -21,6 +24,7 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     - -Wall
+    - -F -pgmF=record-dot-preprocessor
     default-extensions:
     - OverloadedStrings
     dependencies:
